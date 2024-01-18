@@ -1,21 +1,22 @@
 import consoleplus as c
 
-def com_parse():
+def com_parse(command):
     if command == 'help':
-        print('CMD+ - дополнение к cmd')
+        print('CMD+ - Дополнение к cmd')
 
     if command == 'cls':
         print(c.cls())
 
     if command == 'md':
-        name = str(input('Название: '))
-        path = str(input('Путь: '))
+        name = input('Название: ')
+        path = input('Путь: ')
         c.md(name=name, path=path)
 
     if command == 'rd':
-        c.rd()
+        name = input('Название: ')
+        path = input('Путь: ')
+        c.rd(name=name, path=path)
 
 while True:
     command = input('CMD+: ')
-
-    com_parse()
+    com_parse(command)

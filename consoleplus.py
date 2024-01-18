@@ -5,6 +5,13 @@ def cls():
     return x
 
 def md(name, path):
-    if name == '' or path =='':
+    if name == '' or path == '':
         print('ERROR C201')
-    os.mkdir(name=name, path=path)
+    else:
+        os.makedirs(os.path.join(path, name))
+
+def rd(name, path):
+    if name == '' or path == '':
+        print('ERROR C201')
+    else:
+        os.removedirs(os.path.join(path, name))
