@@ -15,3 +15,10 @@ def rd(name, path):
         print('ERROR C201')
     else:
         os.removedirs(os.path.join(path, name))
+
+def ls():
+    files = os.listdir()
+    for file in files:
+        file_path = os.path.join(os.getcwd(), file)
+        size = os.path.getsize(file_path)
+        print(f"{file} - {size} байт")
