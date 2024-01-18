@@ -1,9 +1,15 @@
 import consoleplus as c
+import subprocess
 import os
 
 def com_parse(command):
     if command == 'help':
-        print('CMD+ - Дополнение к cmd')
+        print('cls - Отчистка консоли')
+        print('md - Создание папки')
+        print('rd - Удаление папки')
+        print('ls - Просмотр файлов')
+        print('cd - Смена пути')
+        print('start - Запуск программ')
 
     elif command == 'cls':
         print(c.cls())
@@ -28,6 +34,13 @@ def com_parse(command):
             print(f"Дериктория заменена на: {os.getcwd()}")
         except FileNotFoundError:
             print(f"ERROR С141")
+
+    elif command.startswith('start '):
+        program_to_start = command[6:]
+        try:
+            subprocess.Popen(program_to_start, shell=True)
+        except Exception as e:
+            print(f"ERROR C121")
         
     else:
         print('ERROR C182')
