@@ -1,4 +1,5 @@
 import consoleplus as c
+import os
 
 def com_parse(command):
     if command == 'help':
@@ -19,6 +20,14 @@ def com_parse(command):
 
     elif command == 'ls':
         c.ls()
+
+    elif command.startswith('cd '):
+        new_path = command[3:]
+        try:
+            os.chdir(new_path)
+            print(f"Дериктория заменена на: {os.getcwd()}")
+        except FileNotFoundError:
+            print(f"ERROR С141")
         
     else:
         print('ERROR C182')
